@@ -1,0 +1,56 @@
+{
+  "name": "digit-span",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Recruitment task - Digit Span Brain Task",
+  "author": {
+    "name": "Miłosz Wiśniewski",
+    "email": "wmilosz88@gmail.com",
+    "url": "https://github.com/milesq"
+  },
+  "scripts": {
+    "dev": "craco start",
+    "build": "craco build",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "craco test",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@reduxjs/toolkit": "^1.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "sass": "^1.34.0"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^12.1.4",
+    "@craco/craco": "^6.1.2",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.0",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "@types/react-redux": "^7.1.16",
+    "@types/redux-mock-store": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
+    "babel-plugin-jsx-remove-data-test-id": "^3.0.0",
+    "commitlint": "^12.1.4",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "react-scripts": "^4.0.3",
+    "redux-mock-store": "^1.5.4",
+    "typescript": "^4.2.4"
+  }
+}
