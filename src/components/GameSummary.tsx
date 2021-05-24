@@ -1,12 +1,16 @@
 import React from 'react'
 
+import { useSelector } from '../store'
+
 import Badge from './Badge'
 
 function GameSummary() {
+  const { currentLevel, score } = useSelector(({ digitSpan }) => digitSpan)
+
   return (
     <div className="bg-purple-400 p-8 flex flex-col gap-5">
-      <Badge value="3">Level</Badge>
-      <Badge value="2">Score</Badge>
+      <Badge value={currentLevel}>Level</Badge>
+      <Badge value={score}>Score</Badge>
       <button
         className="
           bg-green-400
