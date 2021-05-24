@@ -1,33 +1,43 @@
 import React from 'react'
+import range from 'lodash.range'
 
 export interface KeyboardProps {
   onKeyDown?(digit: number): void
 }
 
 function Keyboard({ onKeyDown }: KeyboardProps) {
-  const digits = new Array(10).fill(null).map((el, i) => i)
+  // prettier-ignore
+  const digits = [
+    range(0, 5),
+    range(5, 10)
+  ]
 
   return (
     <div className="flex flex-wrap">
-      {digits.map(digit => (
-        <div
-          key={digit}
-          onClick={() => onKeyDown?.(digit)}
-          className="
-            bg-purple-400
-            text-white
-            text-2xl
-            rounded-full
+      {digits.map((part, i) => (
+        <div key={i} className="flex">
+          {part.map(digit => (
+            <div
+              key={digit}
+              onClick={() => onKeyDown?.(digit)}
+              className="
+                bg-purple-400
+                text-white
+                text-2xl
+                rounded-full
 
-            w-10
-            h-10
+                w-10
+                h-10
+                m-1
 
-            flex
-            justify-center
-            items-center
-          "
-        >
-          {digit}
+                flex
+                justify-center
+                items-center
+              "
+            >
+              {digit}
+            </div>
+          ))}
         </div>
       ))}
     </div>

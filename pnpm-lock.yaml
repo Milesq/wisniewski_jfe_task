@@ -8,6 +8,7 @@ specifiers:
   '@testing-library/react': ^11.2.7
   '@testing-library/user-event': ^13.1.9
   '@types/jest': ^26.0.23
+  '@types/lodash.range': ^3.2.6
   '@types/node': ^15.6.0
   '@types/pluralize': ^0.0.29
   '@types/react': ^17.0.6
@@ -26,6 +27,7 @@ specifiers:
   eslint-plugin-react: ^7.23.2
   husky: ^6.0.0
   lint-staged: ^11.0.0
+  lodash.range: ^3.2.0
   pluralize: ^8.0.0
   postcss: '7'
   prettier: ^2.3.0
@@ -39,6 +41,7 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.5.1
+  lodash.range: 3.2.0
   pluralize: 8.0.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -51,6 +54,7 @@ devDependencies:
   '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
   '@testing-library/user-event': 13.1.9
   '@types/jest': 26.0.23
+  '@types/lodash.range': 3.2.6
   '@types/node': 15.6.0
   '@types/pluralize': 0.0.29
   '@types/react': 17.0.6
@@ -2321,6 +2325,16 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: true
+
+  /@types/lodash.range/3.2.6:
+    resolution: {integrity: sha512-bofMTb/7zteggVbeQfMp5iMd1Dar0txmq/i2HEWgrRabF4HxZsyHeny9YktvUGpgkk2m1A4qEkUovVWpbFDYRg==}
+    dependencies:
+      '@types/lodash': 4.14.170
+    dev: true
+
+  /@types/lodash/4.14.170:
+    resolution: {integrity: sha512-bpcvu/MKHHeYX+qeEN8GE7DIravODWdACVA1ctevD8CN24RhPZIKMn9ntfAsrvLfSX3cR5RrBKAbYm9bGs0A+Q==}
     dev: true
 
   /@types/minimatch/3.0.4:
@@ -7966,6 +7980,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash.range/3.2.0:
+    resolution: {integrity: sha1-9GHliPZmg/fq3q3lE+OKaaVloV0=}
+    dev: false
 
   /lodash.template/4.5.0:
     resolution: {integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==}
