@@ -21,6 +21,15 @@ module.exports = {
       return cfg
     },
   },
+  style: {
+    postcss: {
+      // prettier-ignore
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
 }
 
 if (process.env.NODE_ENV === 'production') {
