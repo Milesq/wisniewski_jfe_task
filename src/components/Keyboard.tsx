@@ -30,6 +30,9 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
                 h-10
                 m-1
 
+                select-none
+                pointer-events-none
+
                 flex
                 justify-center
                 items-center
