@@ -12,9 +12,7 @@ function Badge({ value, children }: PropsWithChildren<BadgeProps>) {
         h-32
         p-7
 
-        flex
-        items-center
-        justify-center
+        center
         flex-col
 
         bg-purple-700

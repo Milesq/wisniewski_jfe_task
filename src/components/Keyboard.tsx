@@ -33,9 +33,7 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
                 select-none
                 pointer-events-none
 
-                flex
-                justify-center
-                items-center
+                center
               "
             >
               {digit}
