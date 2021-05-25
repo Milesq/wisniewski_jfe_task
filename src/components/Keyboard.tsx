@@ -17,11 +17,19 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
       {digits.map((part, i) => (
         <div key={i} className="flex">
           {part.map(digit => (
-            <div
+            <button
               key={digit}
+              type="button"
               onClick={() => onKeyDown?.(digit)}
               className="
                 bg-purple-400
+                hover:bg-purple-500
+
+                focus:outline-none
+                focus:ring-4
+                focus:ring-green-500
+                focus:ring-opacity-50
+
                 text-white
                 text-2xl
                 rounded-full
@@ -31,13 +39,13 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
                 m-1
 
                 select-none
-                pointer-events-none
+                cursor-pointer
 
                 center
               "
             >
               {digit}
-            </div>
+            </button>
           ))}
         </div>
       ))}
