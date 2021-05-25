@@ -13,7 +13,7 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
   ]
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center">
       {digits.map((part, i) => (
         <div key={i} className="flex">
           {part.map(digit => (
@@ -26,8 +26,8 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
                 text-2xl
                 rounded-full
 
-                w-10
-                h-10
+                w-12
+                h-12
                 m-1
 
                 select-none
