@@ -1,13 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import pluralize from 'pluralize'
+import { useDispatch } from 'react-redux'
 
-import { useSelector } from '../store'
+import { digitSpan, useSelector } from '../store'
+import { delay } from '../utils'
 
 import Keyboard from './Keyboard'
 
+const TIME_OF_PRESENTING_NUMBER = 800
+
 function GameBoard() {
-  const { currentLevel, score } = useSelector(({ digitSpan }) => digitSpan)
+  const dispatch = useDispatch()
+  const { currentLevel, currentSequence } = useSelector(
+    ({ digitSpan }) => digitSpan
+  )
   const pluralizedDigits = pluralize('digit', currentLevel)
+
+  const [presentedNumber, setPresentedNumber] = useState<number | null>(null)
+  async function setPresentedNumberForWhile(
+    n: number,
+    ms: number = TIME_OF_PRESENTING_NUMBER / 2
+  ) {
+    setPresentedNumber(n)
+    await delay(ms)
+    setPresentedNumber(null)
+  }
+
+  useEffect(() => {
+    ;(async () => {
+      for (const number of currentSequence) {
+        setPresentedNumber(number)
+        await delay(TIME_OF_PRESENTING_NUMBER)
+      }
+
+      setPresentedNumber(null)
+    })()
+  }, [currentSequence])
+
+  const reply = (key: number) => {
+    if (currentSequence.length === 0) return
+
+    dispatch(digitSpan.reply(key))
+    setPresentedNumberForWhile(key)
+  }
 
   return (
     <div className="flex flex-col items-center justify-evenly w-2/3">
@@ -28,10 +63,10 @@ function GameBoard() {
           center
         "
       >
-        {score}
+        {presentedNumber}
       </div>
 
-      <Keyboard />
+      <Keyboard onKeyDown={reply} />
     </div>
   )
 }

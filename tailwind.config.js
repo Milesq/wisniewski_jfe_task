@@ -3,7 +3,8 @@ module.exports = {
   darkMode: false,
   variants: {
     extend: {
-      backgroundColor: ['active'],
+      backgroundColor: ['disabled', 'active'],
+      textColor: ['disabled'],
     },
   },
 }
