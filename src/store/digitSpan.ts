@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { random } from '../utils'
 
@@ -8,12 +8,14 @@ export interface DigitSpanState {
   currentLevel: number
   score: number
   currentSequence: number[]
+  idElementToGuess: number
 }
 
 const initialState: DigitSpanState = {
   currentLevel: 3,
   score: 0,
   currentSequence: [],
+  idElementToGuess: 0,
 }
 
 const createSequence = createAsyncThunk(
@@ -33,12 +35,26 @@ export const slice = createSlice({
   name: 'digitSpan',
   initialState,
   reducers: {
-    acceptAnswer(state) {
-      state.score += state.currentLevel
-      state.currentLevel++
-    },
-    dismissAnswer(state) {
-      state.currentLevel--
+    reply(state, { payload }: PayloadAction<number>) {
+      const currentElement = state.currentSequence[state.idElementToGuess]
+
+      // // loss
+      if (currentElement !== payload) {
+        state.currentLevel--
+        state.currentSequence = []
+        state.idElementToGuess = 0
+        return
+      }
+
+      // win
+      const lastElementID = state.currentSequence.length - 1
+      if (state.idElementToGuess === lastElementID) {
+        state.currentSequence = []
+        state.score += state.currentLevel
+        state.currentLevel++
+      }
+
+      state.idElementToGuess++
     },
   },
   extraReducers: builder => {
@@ -51,6 +67,6 @@ export const slice = createSlice({
 export { createSequence }
 
 export const {
-  actions: { acceptAnswer, dismissAnswer },
+  actions: { reply },
   reducer,
 } = slice
