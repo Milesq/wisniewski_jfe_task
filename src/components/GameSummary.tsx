@@ -8,7 +8,9 @@ import Badge from './Badge'
 
 function GameSummary() {
   const dispatch = useDispatch()
-  const { currentLevel, score } = useSelector(({ digitSpan }) => digitSpan)
+  const { currentLevel, score, currentSequence } = useSelector(
+    ({ digitSpan }) => digitSpan
+  )
 
   function startNextLevel() {
     dispatch(createSequence())
@@ -20,11 +22,15 @@ function GameSummary() {
       <Badge value={score}>Score</Badge>
       <button
         onClick={startNextLevel}
+        disabled={!!currentSequence.length}
         className="
           bg-green-400
           hover:bg-green-500
           text-gray-50
           hover:text-gray-200
+
+          disabled:bg-gray-200
+          disabled:text-gray-500
 
           p-4
           rounded-lg
