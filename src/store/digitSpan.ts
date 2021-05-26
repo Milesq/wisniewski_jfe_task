@@ -37,6 +37,11 @@ export const slice = createSlice({
   name: 'digitSpan',
   initialState,
   reducers: {
+    reset(state) {
+      state.life = initialState.life
+      state.score = initialState.score
+      state.currentLevel = initialState.currentLevel
+    },
     reply(state, { payload }: PayloadAction<number>) {
       const currentElement = state.currentSequence[state.idElementToGuess]
 
@@ -75,6 +80,6 @@ export const slice = createSlice({
 export { createSequence }
 
 export const {
-  actions: { reply },
+  actions: { reply, reset },
   reducer,
 } = slice
