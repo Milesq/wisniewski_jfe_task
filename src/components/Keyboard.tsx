@@ -24,6 +24,7 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
               className="
                 bg-purple-400
                 hover:bg-purple-500
+                active:bg-purple-600
 
                 focus:outline-none
                 focus:ring-4
