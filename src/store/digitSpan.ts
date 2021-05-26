@@ -40,7 +40,9 @@ export const slice = createSlice({
 
       // loss
       if (currentElement !== payload) {
-        state.currentLevel--
+        if (state.currentLevel > initialState.currentLevel) {
+          state.currentLevel--
+        }
         state.currentSequence = []
         state.idElementToGuess = 0
         return
