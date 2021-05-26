@@ -9,6 +9,7 @@ export interface DigitSpanState {
   score: number
   currentSequence: number[]
   idElementToGuess: number
+  life: number
 }
 
 const initialState: DigitSpanState = {
@@ -16,6 +17,7 @@ const initialState: DigitSpanState = {
   score: 0,
   currentSequence: [],
   idElementToGuess: 0,
+  life: 3,
 }
 
 const createSequence = createAsyncThunk(
@@ -45,6 +47,8 @@ export const slice = createSlice({
         }
         state.currentSequence = []
         state.idElementToGuess = 0
+
+        state.life--
         return
       }
 
