@@ -1,19 +1,19 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { useSelector } from '../store'
-import { createSequence } from '../store/digitSpan'
+import { useSelector, digitSpan } from '../store'
 
 import Badge from './Badge'
 
 function GameSummary() {
   const dispatch = useDispatch()
-  const { currentLevel, score, currentSequence } = useSelector(
+  const { currentLevel, score, currentSequence, life } = useSelector(
     ({ digitSpan }) => digitSpan
   )
 
   function startNextLevel() {
-    dispatch(createSequence())
+    const action = life !== 0 ? digitSpan.createSequence() : digitSpan.reset()
+    dispatch(action)
   }
 
   return (
@@ -36,7 +36,7 @@ function GameSummary() {
           rounded-lg
         "
       >
-        Play Level
+        {life ? 'Play Level' : 'Play Again'}
       </button>
     </div>
   )
