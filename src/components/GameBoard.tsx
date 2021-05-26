@@ -31,6 +31,8 @@ function GameBoard() {
       for (const number of currentSequence) {
         setPresentedNumber(number)
         await delay(TIME_OF_PRESENTING_NUMBER)
+        setPresentedNumber(null)
+        await delay(400)
       }
 
       setPresentedNumber(null)
