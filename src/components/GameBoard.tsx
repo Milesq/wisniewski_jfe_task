@@ -11,7 +11,7 @@ const TIME_OF_PRESENTING_NUMBER = 800
 
 function GameBoard() {
   const dispatch = useDispatch()
-  const { currentLevel, currentSequence } = useSelector(
+  const { currentLevel, currentSequence, life } = useSelector(
     ({ digitSpan }) => digitSpan
   )
   const pluralizedDigits = pluralize('digit', currentLevel)
@@ -66,6 +66,7 @@ function GameBoard() {
         "
       >
         {presentedNumber}
+        {!life && <div className="text-danger">gameover</div>}
       </div>
 
       <Keyboard onKeyDown={reply} />

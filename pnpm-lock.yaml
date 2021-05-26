@@ -3,7 +3,6 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/config-conventional': ^12.1.4
   '@craco/craco': ^6.1.2
-  '@material-ui/icons': ^4.11.2
   '@reduxjs/toolkit': ^1.5.1
   '@testing-library/jest-dom': ^5.12.0
   '@testing-library/react': ^11.2.7
@@ -34,6 +33,7 @@ specifiers:
   prettier: ^2.3.0
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-icons: ^4.2.0
   react-redux: ^7.2.4
   react-scripts: ^4.0.3
   redux-mock-store: ^1.5.4
@@ -41,12 +41,12 @@ specifiers:
   typescript: ^4.2.4
 
 dependencies:
-  '@material-ui/icons': 4.11.2_7bb0cf46d12c3d24c714ae32f2413a3b
   '@reduxjs/toolkit': 1.5.1
   lodash.range: 3.2.0
   pluralize: 8.0.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-icons: 4.2.0_react@17.0.2
   react-redux: 7.2.4_react-dom@17.0.2+react@17.0.2
 
 devDependencies:
@@ -1901,24 +1901,6 @@ packages:
       '@types/yargs': 15.0.13
       chalk: 4.1.1
     dev: true
-
-  /@material-ui/icons/4.11.2_7bb0cf46d12c3d24c714ae32f2413a3b:
-    resolution: {integrity: sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==}
-    engines: {node: '>=8.0.0'}
-    peerDependencies:
-      '@material-ui/core': ^4.0.0
-      '@types/react': ^16.8.6 || ^17.0.0
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.14.0
-      '@types/react': 17.0.6
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    dev: false
 
   /@nodelib/fs.scandir/2.1.4:
     resolution: {integrity: sha512-33g3pMJk3bg5nXbL/+CY6I2eJDzZAni49PfJnL5fghPTggPvBd/pFNSgJsdAgWptuFu7qq/ERvOYFlhvsLTCKA==}
@@ -10195,6 +10177,14 @@ packages:
   /react-error-overlay/6.0.9:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
     dev: true
+
+  /react-icons/4.2.0_react@17.0.2:
+    resolution: {integrity: sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
