@@ -14,6 +14,7 @@ function GameBoard() {
   const { currentLevel, currentSequence, life } = useSelector(
     ({ digitSpan }) => digitSpan
   )
+  const [isSequencePresening, setIsSequencePresening] = useState(false)
   const pluralizedDigits = pluralize('digit', currentLevel)
 
   const [presentedNumber, setPresentedNumber] = useState<number | null>(null)
@@ -28,6 +29,8 @@ function GameBoard() {
 
   useEffect(() => {
     ;(async () => {
+      setIsSequencePresening(true)
+
       for (const number of currentSequence) {
         setPresentedNumber(number)
         await delay(TIME_OF_PRESENTING_NUMBER)
@@ -36,11 +39,13 @@ function GameBoard() {
       }
 
       setPresentedNumber(null)
+      setIsSequencePresening(false)
     })()
   }, [currentSequence])
 
   const reply = (key: number) => {
     if (currentSequence.length === 0) return
+    if (isSequencePresening) return
 
     dispatch(digitSpan.reply(key))
     setPresentedNumberForWhile(key)
@@ -69,7 +74,7 @@ function GameBoard() {
         {!life && <div className="text-danger">gameover</div>}
       </div>
 
-      <Keyboard onKeyDown={reply} />
+      <Keyboard disabled={isSequencePresening} onKeyDown={reply} />
     </div>
   )
 }

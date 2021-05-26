@@ -3,9 +3,10 @@ import range from 'lodash.range'
 
 export interface KeyboardProps {
   onKeyDown?(digit: number): void
+  disabled?: boolean
 }
 
-function Keyboard({ onKeyDown }: KeyboardProps) {
+function Keyboard({ onKeyDown, disabled = false }: KeyboardProps) {
   // prettier-ignore
   const digits = [
     range(0, 5),
@@ -20,11 +21,12 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
             <button
               key={digit}
               type="button"
+              disabled={disabled}
               onClick={() => onKeyDown?.(digit)}
-              className="
+              className={`
                 bg-purple-400
-                hover:bg-purple-500
                 active:bg-purple-600
+                ${!disabled && 'hover:bg-purple-500'}
 
                 focus:outline-none
                 focus:ring-4
@@ -40,10 +42,10 @@ function Keyboard({ onKeyDown }: KeyboardProps) {
                 m-1
 
                 select-none
-                cursor-pointer
+                ${disabled && 'cursor-default'}
 
                 center
-              "
+              `}
             >
               {digit}
             </button>
