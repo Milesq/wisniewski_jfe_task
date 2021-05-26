@@ -38,7 +38,7 @@ export const slice = createSlice({
     reply(state, { payload }: PayloadAction<number>) {
       const currentElement = state.currentSequence[state.idElementToGuess]
 
-      // // loss
+      // loss
       if (currentElement !== payload) {
         state.currentLevel--
         state.currentSequence = []
@@ -50,8 +50,10 @@ export const slice = createSlice({
       const lastElementID = state.currentSequence.length - 1
       if (state.idElementToGuess === lastElementID) {
         state.currentSequence = []
+        state.idElementToGuess = 0
         state.score += state.currentLevel
         state.currentLevel++
+        return
       }
 
       state.idElementToGuess++
